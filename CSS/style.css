@@ -384,7 +384,13 @@ header {
 
 /* Right side image */
 .profile-card {
-  
+ /*   flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    max-width: 480px;*/
     animation: floatImage 5s ease-in-out infinite;
 }
 
