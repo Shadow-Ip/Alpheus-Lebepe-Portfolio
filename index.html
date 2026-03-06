@@ -48,18 +48,13 @@
         </div>
 
         <!-- Mobile Menu Dropdown-->
-        <div id="mobileMenu" class="menu1" >
+        <div id="mobileMenu" class="menu1">
             <div class="menuStyle">
-                <a href="#home"  
-                    onclick="closeMobileMenu()">Home</a>
-                <a href="#skills" 
-                    onclick="closeMobileMenu()">Skills</a>
-                <a href="#projects" 
-                    onclick="closeMobileMenu()">Projects</a>
-                <a href="#education" 
-                    onclick="closeMobileMenu()">Education</a>
-                <a href="#contacts" 
-                    onclick="closeMobileMenu()">Contacts</a>
+                <a href="#home" onclick="closeMobileMenu()">Home</a>
+                <a href="#skills" onclick="closeMobileMenu()">Skills</a>
+                <a href="#projects" onclick="closeMobileMenu()">Projects</a>
+                <a href="#education" onclick="closeMobileMenu()">Education</a>
+                <a href="#contacts" onclick="closeMobileMenu()">Contacts</a>
             </div>
         </div>
     </header>
@@ -68,46 +63,47 @@
     <div id="loadingOverlay" class="loading-overlay">
         <div class="loading-spinner"></div>
         <h2>Loading Portfolio....</h2>
-        <p >Please wait while we load the content.</p>
-        <p >Alpheus Lebepe IT Systems Developer</p>
+        <p>Please wait while we load the content.</p>
+        <p>Alpheus Lebepe IT Systems Developer</p>
     </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-      <div class="container">
-           <!-- <div class="profile-picture  tilt-card ">
-                <img src="assets/profile.jpg" alt="Alpheus Lebepe">
-            </div> -->
+        <div class="container hero-layout">
 
-            <div class="profile-card glass-card tilt-card">
-                <div class="profile-img-wrapper">
-                   
+            <!-- LEFT SIDE (TEXT) -->
+            <div class="hero-text">
+                <h2>Hi, I'm</h2>
+                <h1>Alpheus Lebepe</h1>
+
+                <div class="typing-container ">
+                    <span class="static-text ">==> </span>
+                    <span id="dynamicText" class="dynamic-text">IT Systems Developer</span>
                 </div>
-                <h3>Ali Lebepe</h3>
-                <p>Systems Development Student</p>
+
+                <p class="hero-subtitle">
+                    Diploma in IT Systems Development (2026) | <br> I build and maintain robust IT systems, Websites <br> and
+                    Android
+                    Applications.
+                </p>
+
+                <div class="cta-buttons">
+                    <a href="#contacts" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Get In Touch
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <i class="fas fa-code-branch"></i> View Projects
+                    </a>
+                </div>
             </div>
 
-            <h1 class="tilt-content">Alpheus Lebepe</h1>
-
-            <!-- Typing Animation -->
-            <div class="typing-container">
-                <span class="static-text">I am a</span>
-                <span id="dynamicText" class="dynamic-text">IT Systems Developer</span>
+            <!-- RIGHT SIDE (IMAGE) -->
+            <div class="profile-card tilt-card">
+                <div class="profile-img-wrapper">
+                    <img src="assets/profile.jpg" alt="Alpheus Lebepe">
+                </div>
             </div>
 
-            <p class="hero-subtitle">
-                Diploma in IT Systems Development (2026) | I build and maintain robust IT systems, Websites and Android
-                Applications.
-            </p>
-
-            <div class="cta-buttons">
-                <a href="#contacts" class="btn btn-primary">
-                    <i class="fas fa-paper-plane"></i> Get In Touch
-                </a>
-                <a href="#projects" class="btn btn-secondary">
-                    <i class="fas fa-code-branch"></i> View Projects
-                </a>
-            </div>
         </div>
     </section>
 
