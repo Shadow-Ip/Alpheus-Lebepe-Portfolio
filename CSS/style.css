@@ -361,6 +361,24 @@ header {
     box-shadow: 0 0 25px rgba(0, 123, 255, 0.5);
 }*/
 
+/* Profile Card */
+.profile-card{
+    text-align: center;
+    padding: 30px;
+    max-width: 280px;
+    margin: auto;
+}
+
+/* Image Wapper */
+.profile-img-wrapper{
+    width: 180px;
+    height: 180px;
+    margin: auto;
+    border-radius: 50%;
+    padding: 6px;
+    background: linear-gradient(45deg, #00f2ff, #007bff, #8a2be2);
+}
+
 .btn {
     padding: 12px 28px;
     border-radius: 50px;
