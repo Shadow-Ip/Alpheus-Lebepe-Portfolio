@@ -474,6 +474,18 @@ header {
 }
 
 /* ===== SKILL BARS ===== */
+
+.Div1 {
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.Div1 h3 {
+    color: var(--capitec-accent);
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
 .skill-bars-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -512,6 +524,18 @@ header {
 }
 
 /* ===== TECH STACK ICONS ===== */
+
+.Div2 {
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.Div2 h3 {
+    color: var(--capitec-accent);
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
 .tech-stack-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
