@@ -342,3 +342,41 @@ function showNotification(message, type) {
                 }
             });
         });
+
+        // ===== Scroll Reveal Animation =====
+
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            revealObserver.unobserve(entry.target); // animate once only
+        }
+
+    });
+
+}, {
+    threshold: 0.15
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+
+// ===== FIX: trigger reveal for elements already visible on load =====
+
+window.addEventListener("load", () => {
+
+    revealElements.forEach(el => {
+
+        const rect = el.getBoundingClientRect();
+
+        if (rect.top < window.innerHeight) {
+            el.classList.add("active");
+        }
+
+    });
+
+});

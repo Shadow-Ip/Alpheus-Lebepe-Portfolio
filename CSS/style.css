@@ -586,7 +586,7 @@ header {
 }
 
 .fa-java {
-    color: #007396;
+    color: #b33d06;
 }
 
 .fa-js {
@@ -598,7 +598,7 @@ header {
 }
 
 .fa-database {
-    color: #003B57;
+    color: #077fb6;
 }
 
 .fa-html5 {
@@ -613,9 +613,14 @@ header {
     color: #61DAFB;
 }
 
-.fa-node-js {
+.fa-node-js, .fa-android {
     color: #339933;
 }
+
+.fa-lock{
+    color:rgba(221, 18, 18, 0.747);
+}
+
 
 /* ===== SKILL HEATMAP ===== */
 .heatmap-container {
@@ -1072,3 +1077,25 @@ footer {
     color: var(--text-secondary);
     font-size: 0.9rem;
 }
+
+/* ===== SCROLL REVEAL ANIMATION ===== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay {
+    transition-delay: 0.1s;
+}
+
+.reveal-delay2 {
+    transition-delay: 0.2s;
+}
+
