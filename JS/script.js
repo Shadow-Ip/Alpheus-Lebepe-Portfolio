@@ -60,7 +60,7 @@ function toggleMobileMenu() {
         }
 
 // ============= Typing Animation Logic ===============
- /*       const dynamicText = document.getElementById('dynamicText');
+    const dynamicText = document.getElementById('dynamicText');
         const texts = [
             'IT Systems Developer',
             'Android Developer', 
@@ -94,7 +94,7 @@ function toggleMobileMenu() {
             }
         }
         setTimeout(typeEffect, 1000);
-
+/*
 // ============= Animated Skill Bars Logic ===============
 function animateSkillBars() {
     const bars = document.querySelectorAll('.skill-bar-fill');
