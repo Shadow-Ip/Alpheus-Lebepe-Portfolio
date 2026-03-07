@@ -137,8 +137,8 @@ body {
 /* ===== GLASS MORPHISM ===== */
 .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     box-shadow: var(--glass-shadow);
@@ -486,13 +486,6 @@ header {
     font-size: 1.5rem;
 }
 
-/*.skill-bars-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}*/
-
 .skill-bar-item {
     margin-bottom: 15px;
 }
@@ -521,6 +514,11 @@ header {
     width: 0;
     transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+}
+
+.skill-percent {
+    font-weight: 500;
+    color: var(--text-secondary);
 }
 
 .skills-grid {
