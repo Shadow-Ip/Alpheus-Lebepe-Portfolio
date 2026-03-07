@@ -475,23 +475,23 @@ header {
 
 /* ===== SKILL BARS ===== */
 
-.Div1 {
+.skill-panel {
     padding: 30px;
     margin-bottom: 30px;
 }
 
-.Div1 h3 {
+.skill-panel h3 {
     color: var(--capitec-accent);
     margin-bottom: 25px;
     font-size: 1.5rem;
 }
 
-.skill-bars-container {
+/*.skill-bars-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     margin-top: 30px;
-}
+}*/
 
 .skill-bar-item {
     margin-bottom: 15px;
@@ -521,6 +521,22 @@ header {
     width: 0;
     transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.skill-category {
+    padding: 25px;
+}
+
+.skill-category h3 {
+    color: var(--capitec-accent);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
 }
 
 /* ===== TECH STACK ICONS ===== */
