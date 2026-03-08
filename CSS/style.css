@@ -597,7 +597,7 @@ header {
     color: #777BB3;
 }
 
-.fa-database {
+.fa-database, .fa-shield-alt {
     color: #077fb6;
 }
 
@@ -617,7 +617,7 @@ header {
     color: #339933;
 }
 
-.fa-lock, .fa-shield-alt{
+.fa-lock{
     color:rgba(221, 18, 18, 0.747);
 }
 

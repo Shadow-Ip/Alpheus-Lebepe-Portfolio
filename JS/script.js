@@ -94,62 +94,8 @@ function toggleMobileMenu() {
             }
         }
         setTimeout(typeEffect, 1000);
-/*
+        
 // ============= Animated Skill Bars Logic ===============
-function animateSkillBars() {
-    const bars = document.querySelectorAll('.skill-bar-fill');
-
-    bars.forEach(bar => {
-        const width = bar.dataset.width;
-        bar.style.width = width;
-    });
-}
-// Trigger skill bar animation when section is visible
-const skillsSection = document.getElementById('skills');
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-            animateSkillBars();
-
-            // stop observing once animated
-            observer.unobserve(entry.target);
-        }
-
-    });
-}, {
-    threshold: 0.2,
-    rootMargin: "0px 0px -50px 0px"
-});
-
-observer.observe(skillsSection);
-
-// Mobile fallback
-window.addEventListener("load", () => {
-
-    if (window.innerWidth <= 768) {
-        animateSkillBars();
-    }
-
-});
-
-// Prevent animation from running multiple times
-let skillsAnimated = false;
-
-function animateSkillBars() {
-
-    if (skillsAnimated) return;
-
-    const bars = document.querySelectorAll('.skill-bar-fill');
-
-    bars.forEach(bar => {
-        const width = bar.dataset.width;
-        bar.style.width = width;
-    });
-
-    skillsAnimated = true;
-}*/
 
 let skillsAnimated = false;
 
