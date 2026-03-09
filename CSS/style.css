@@ -683,21 +683,49 @@ header {
     }
 } */
 
+.repo-card {
+    position: relative;
+    padding-bottom: 50px;
+}
+
+/* GitHub icon position */
+
+.repo-github {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.4rem;
+    color: white;
+    transition: 0.3s;
+}
+
+/* hover effect */
+
+.repo-github:hover {
+    transform: scale(1.2);
+}
+
+/* Light mode */
+
+.light-mode .fa-github {
+    color: black;
+}
 
 .repo-btn {
     display: inline-block;
     margin-top: 15px;
     padding: 8px 14px;
-    background: var(--capitec-accent);
+    background: transparent;
     color: white;
     border-radius: 6px;
+    backdrop-filter: blur(23);
     font-size: 0.9rem;
     text-decoration: none;
     transition: 0.3s;
 }
 
 .repo-btn:hover {
-    background: #000;
+    background: #4e4d4d;
     transform: translateY(-2px);
 }
 
