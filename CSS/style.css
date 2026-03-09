@@ -621,6 +621,9 @@ header {
     color:rgba(221, 18, 18, 0.747);
 }
 
+.fa-github {
+    color: white;
+}
 
 /* ===== SKILL HEATMAP ===== 
 .heatmap-container {
@@ -685,7 +688,7 @@ header {
     display: inline-block;
     margin-top: 15px;
     padding: 8px 14px;
-    background: #24292e;
+    background: var(--capitec-accent);
     color: white;
     border-radius: 6px;
     font-size: 0.9rem;
