@@ -682,125 +682,69 @@ header {
 } */
 
 
-/* GitHub icon position */
 
-.repo-github {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    font-size: 1.4rem;
-    color: white;
-    transition: 0.3s;
+
+
+
+/* ===== PROJECTS SECTION AND REPOSITORY CARDS ===== */
+
+.repo-card:hover {
+    transform: translateY(-30px);
 }
 
-/* hover effect */
 
-.repo-github:hover {
-    transform: scale(1.2);
-}
-
-/* Light mode */
-
-body.light-mode .repo-github {
-    color: black;
-}
-
-.repo-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 8px 14px;
-    background: transparent;
-    
-    
-    backdrop-filter: blur(23);
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.repo-btn:hover {
-    background: #4e4d4d;
-    transform: translateY(-2px);
-}
-
-.other-projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
     margin-top: 30px;
 }
 
-.other-project {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 10px 16px;
-    border-radius: 8px;
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.other-project:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-3px);
-}
-
-
-/* ===== PROJECTS SECTION ===== */
-
-.projects {
-    padding: 80px 0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
+.repo-card {
     padding: 25px;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-}
-
-.project-card h3 {
-    margin-bottom: 10px;
-}
-
-.project-card p {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-    color: var(--text-secondary);
-}
-
-.tech-stack {
-    margin-bottom: 20px;
-}
-
-.tech-stack span {
-    display: inline-block;
-    background: rgba(0, 123, 255, 0.15);
-    color: var(--capitec-accent);
-    padding: 4px 10px;
-    margin: 3px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-}
-
-.project-buttons {
+.repo-header {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
 }
+
+.repo-header i {
+    font-size: 1.8rem;
+    color: var(--capitec-accent);
+}
+
+.repo-header h3 {
+    font-size: 1.2rem;
+}
+
+.repo-stats {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--glass-border);
+    flex-wrap: wrap;
+}
+
+.repo-stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+
 
 /* ===== MODULE EXPLORER ===== */
 .education-container {
@@ -1155,50 +1099,6 @@ footer {
     }
 }
 
-/* ===== REPOSITORY CARDS ===== */
-.repo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.repo-card {
-    padding: 25px;
-}
-
-.repo-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-}
-
-.repo-header i {
-    font-size: 1.8rem;
-    color: var(--capitec-accent);
-}
-
-.repo-header h3 {
-    font-size: 1.2rem;
-}
-
-.repo-stats {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid var(--glass-border);
-    flex-wrap: wrap;
-}
-
-.repo-stat {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
 
 /* ===== SCROLL REVEAL ANIMATION ===== */
 
