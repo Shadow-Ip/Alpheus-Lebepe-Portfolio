@@ -571,7 +571,7 @@ header {
 }
 
 .tech-icon:hover {
-    transform: translateY(-6px);    
+    transform: translateY(-6px);
     border-color: var(--capitec-accent);
     background: rgba(0, 163, 224, 0.1);
 }
@@ -624,70 +624,6 @@ header {
 }
 
 
-
-/* ===== SKILL HEATMAP ===== 
-.heatmap-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 30px;
-}
-
-.heatmap-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.heatmap-label {
-    width: 100px;
-    color: var(--text-secondary);
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-.heatmap-cells {
-    display: flex;
-    gap: 5px;
-    flex: 1;
-    flex-wrap: wrap;
-}
-
-.heatmap-cell {
-    width: 25px;
-    height: 25px;
-    border-radius: 6px;
-    transition: var(--transition);
-    cursor: pointer;
-}
-
-@media (max-width: 600px) {
-    .heatmap-row {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .heatmap-label {
-        width: 100%;
-        margin-bottom: 5px;
-    }
-
-    .heatmap-cells {
-        width: 100%;
-    }
-
-    .heatmap-cell {
-        width: 22px;
-        height: 22px;
-    }
-} */
-
-
-
-
-
-
 /* ===== PROJECTS SECTION AND REPOSITORY CARDS ===== */
 /* Base card styling */
 .repo-card {
@@ -715,12 +651,11 @@ header {
 /* Tilt effect on hover */
 @media (hover: hover) {
     .repo-card:hover {
-        transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateY(-30px);
+        transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateY(-20px);
         border-color: var(--capitec-accent);
         box-shadow: 0 12px 48px rgba(0, 163, 224, 0.2);
     }
 }
-
 
 .repo-grid {
     display: grid;
@@ -729,7 +664,6 @@ header {
     margin-top: 30px;
     align-items: stretch;
 }
-
 
 .repo-header {
     display: flex;
@@ -798,7 +732,7 @@ header {
 
 .reveal {
     opacity: 0;
-    filter: blur(6px);   
+    filter: blur(6px);
     will-change: opacity;
 }
 
@@ -806,10 +740,6 @@ header {
     opacity: 1;
     filter: blur(0);
 }
-
-
-
-
 
 
 /* ===== MODULE EXPLORER ===== */
@@ -1164,6 +1094,3 @@ footer {
         height: 220px;
     }
 }
-
-
-
