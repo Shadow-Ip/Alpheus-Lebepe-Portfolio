@@ -922,7 +922,7 @@ header {
     gap: 8px;
 }
 
-.skill-tags span {    
+.skill-tags span {
     background: rgba(255, 183, 0, 0.1);
     border: 1px solid rgba(59, 130, 246, 0.3);
     border-color: var(--fnb-yellow);
@@ -939,6 +939,7 @@ header {
 }
 
 /* ===== CONTACT SECTION ===== */
+
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
