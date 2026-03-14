@@ -953,8 +953,79 @@ header {
     }
 }
 
+.pad-contact {
+    padding: 30px;
+}
+
+.pad-contact h3 {
+    color: var(--capitec-accent);
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+
+}
+
+.div-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.div-contact2 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.div-contact3 {
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 163, 224, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.div-contact3 i {
+    color: var(--capitec-accent);
+    font-size: 1.1rem;
+}
+
+.h4-contact {
+    color: var(--text-primary);
+    margin-bottom: 3px;
+    font-size: 1rem;
+}
+
+.p-contact {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.contact-icon {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.contact-icon a {
+    width: 45px;
+    height: 45px;
+    background: var(--glass-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
 .social-link {
     transition: var(--transition);
+}
+.social-link i{
+    font-size: 1.3rem;
 }
 
 .social-link:hover {
