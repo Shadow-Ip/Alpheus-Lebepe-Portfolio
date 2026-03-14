@@ -1024,7 +1024,8 @@ header {
 .social-link {
     transition: var(--transition);
 }
-.social-link i{
+
+.social-link i {
     font-size: 1.3rem;
 }
 
@@ -1047,6 +1048,11 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+}
+
+.footer-info {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
 .footer-links {
