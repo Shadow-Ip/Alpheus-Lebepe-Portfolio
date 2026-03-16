@@ -379,10 +379,17 @@ revealElements.forEach(el => revealObserver.observe(el));
 
 
 // ============== Contact Form EmailJS script ================
-document.getElementById("contact-form")
-.addEventListener("submit", function(event){
 
-event.preventDefault();
+const form = document.getElementById("contact-form");
+const messageBox = document.getElementById("form-message");
+const button = document.querySelector(".send-btn");
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+button.classList.add("loading");
+button.innerHTML = "Sending...";
 
 emailjs.send("service_c7qe3g8","template_xkyhb6h",{
 
@@ -394,13 +401,26 @@ message: document.getElementById("message").value
 })
 .then(function(){
 
-alert("Message sent successfully!");
+button.classList.remove("loading");
+button.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message & Let\'s Connect';
 
-document.getElementById("contact-form").reset();
+messageBox.classList.add("show");
 
-}, function(error){
+form.reset();
 
-alert("Failed to send message.");
+setTimeout(()=>{
+
+messageBox.classList.remove("show");
+
+},5000);
+
+})
+.catch(function(){
+
+button.classList.remove("loading");
+button.innerHTML = "Send Message";
+
+alert("Something went wrong. Please try again.");
 
 });
 
