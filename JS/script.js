@@ -94,140 +94,9 @@ function toggleMobileMenu() {
             }
         }
         setTimeout(typeEffect, 1000);
-/*
-// ============= Animated Skill Bars Logic ===============
-function animateSkillBars() {
-    const bars = document.querySelectorAll('.skill-bar-fill');
-
-    bars.forEach(bar => {
-        const width = bar.dataset.width;
-        bar.style.width = width;
-    });
-}
-// Trigger skill bar animation when section is visible
-const skillsSection = document.getElementById('skills');
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-            animateSkillBars();
-
-            // stop observing once animated
-            observer.unobserve(entry.target);
-        }
-
-    });
-}, {
-    threshold: 0.2,
-    rootMargin: "0px 0px -50px 0px"
-});
-
-observer.observe(skillsSection);
-
-// Mobile fallback
-window.addEventListener("load", () => {
-
-    if (window.innerWidth <= 768) {
-        animateSkillBars();
-    }
-
-});
-
-// Prevent animation from running multiple times
-let skillsAnimated = false;
-
-function animateSkillBars() {
-
-    if (skillsAnimated) return;
-
-    const bars = document.querySelectorAll('.skill-bar-fill');
-
-    bars.forEach(bar => {
-        const width = bar.dataset.width;
-        bar.style.width = width;
-    });
-
-    skillsAnimated = true;
-}*/
-
-let skillsAnimated = false;
-
-function animateSkillBars() {
-
-    if (skillsAnimated) return;
-
-    const bars = document.querySelectorAll('.skill-bar-fill');
-    const percents = document.querySelectorAll('.skill-percent');
-
-    // Animate bars
-    bars.forEach(bar => {
-        const width = bar.dataset.width;
-        bar.style.width = width;
-    });
-
-    // Animate numbers
-    percents.forEach(percent => {
-
-    const target = +percent.dataset.target;
-    const level = percent.dataset.level;
-
-    let current = 0;
-    const increment = target / 40;
-
-    const updateCounter = () => {
-
-        if (current < target) {
-
-            current += increment;
-
-            percent.innerText =
-                Math.floor(current) + "% • " + level;
-
-            requestAnimationFrame(updateCounter);
-
-        } else {
-
-            percent.innerText =
-                target + "% • " + level;
-
-        }
-
-    };
-
-    updateCounter();
-
-});
-
-    skillsAnimated = true;
-}
-
-// Scroll trigger
-const skillsSection = document.getElementById('skills');
-
-const observer = new IntersectionObserver((entries) => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-            animateSkillBars();
-        }
-
-    });
-
-}, { threshold: 0.2 });
-
-observer.observe(skillsSection);
 
 
-// Mobile fallback
-window.addEventListener("load", () => {
 
-    if (window.innerWidth <= 768) {
-        animateSkillBars();
-    }
-
-});
 
 // ============== Mudule Explorer Logic ================
 function toggleModule(module){
@@ -376,6 +245,86 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 revealElements.forEach(el => revealObserver.observe(el));
+
+// ============= Animated Skill Bars Logic ===============
+
+let skillsAnimated = false;
+
+function animateSkillBars() {
+
+    if (skillsAnimated) return;
+
+    const bars = document.querySelectorAll('.skill-bar-fill');
+    const percents = document.querySelectorAll('.skill-percent');
+
+    // Animate bars
+    bars.forEach(bar => {
+        const width = bar.dataset.width;
+        bar.style.width = width;
+    });
+
+    // Animate numbers
+    percents.forEach(percent => {
+
+    const target = +percent.dataset.target;
+    const level = percent.dataset.level;
+
+    let current = 0;
+    const increment = target / 40;
+
+    const updateCounter = () => {
+
+        if (current < target) {
+
+            current += increment;
+
+            percent.innerText =
+                Math.floor(current) + "% • " + level;
+
+            requestAnimationFrame(updateCounter);
+
+        } else {
+
+            percent.innerText =
+                target + "% • " + level;
+
+        }
+
+    };
+
+    updateCounter();
+
+});
+
+    skillsAnimated = true;
+}
+
+// Scroll trigger
+const skillsSection = document.getElementById('skills');
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            animateSkillBars();
+        }
+
+    });
+
+}, { threshold: 0.2 });
+
+observer.observe(skillsSection);
+
+
+// Mobile fallback
+window.addEventListener("load", () => {
+
+    if (window.innerWidth <= 768) {
+        animateSkillBars();
+    }
+
+});
 
 
 // ============== Contact Form EmailJS script ================
