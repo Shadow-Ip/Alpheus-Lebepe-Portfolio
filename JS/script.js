@@ -374,3 +374,21 @@ alert("Something went wrong. Please try again.");
 });
 
 });
+
+// ======================= Scroll Progress Bar ================================
+
+const scrollBar = document.querySelector(".scroll-bar");
+
+window.addEventListener("scroll", () => {
+
+const scrollTop = document.documentElement.scrollTop;
+
+const scrollHeight =
+document.documentElement.scrollHeight -
+document.documentElement.clientHeight;
+
+const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+scrollBar.style.width = scrollPercent + "%";
+
+});
