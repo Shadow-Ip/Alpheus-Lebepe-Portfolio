@@ -377,3 +377,31 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach(el => revealObserver.observe(el));
 
+
+// ============== Contact Form EmailJS script ================
+document.getElementById("contact-form")
+.addEventListener("submit", function(event){
+
+event.preventDefault();
+
+emailjs.send("service_c7qe3g8","template_xkyhb6h",{
+
+first_name: document.getElementById("first_name").value,
+last_name: document.getElementById("last_name").value,
+email: document.getElementById("email").value,
+message: document.getElementById("message").value
+
+})
+.then(function(){
+
+alert("Message sent successfully!");
+
+document.getElementById("contact-form").reset();
+
+}, function(error){
+
+alert("Failed to send message.");
+
+});
+
+});
