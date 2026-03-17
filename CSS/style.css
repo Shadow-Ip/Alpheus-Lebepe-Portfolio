@@ -1206,7 +1206,7 @@ header {
 }
 .magnetic {
     transition: transform 0.2s ease;
-    will-change: transform;
+    
 }
 
 
@@ -1370,15 +1370,15 @@ footer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 300px;
-    height: 300px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
     /* glow color */
     background: radial-gradient(circle,
-            rgba(0, 163, 224, 0.25) 0%,
-            rgba(0, 164, 224, 0.082) 30%,
+            rgba(0, 163, 224, 0.15) 0%,
+            rgba(0, 163, 224, 0.08) 40%,
             transparent 70%);
     transform: translate(-50%, -50%);
     transition:

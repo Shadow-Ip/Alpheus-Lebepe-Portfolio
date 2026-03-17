@@ -421,17 +421,18 @@ magnets.forEach(btn => {
 btn.addEventListener("mousemove", (e) => {
 
 const rect = btn.getBoundingClientRect();
+const strength = 1;
 
-const x = e.clientX - rect.left - rect.width / 6;
-const y = e.clientY - rect.top - rect.height / 6;
+const x = e.clientX - rect.left - rect.width / 2;
+const y = e.clientY - rect.top - rect.height / 2;
 
-btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.05)`;
+btn.style.transform = `translate(${x * strength}px, ${y * strength}px) scale(1.05)`;
 
 });
 
 btn.addEventListener("mouseleave", () => {
 
-btn.style.transform = "translate(0, 0)";
+btn.style.transform = "translate(0, 0) scale(1)";
 
 });
 
