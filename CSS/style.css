@@ -1397,6 +1397,35 @@ footer {
     }
 }
 
+/* ===== CURSOR GLOW EFFECT ===== */
+
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    /* glow color */
+    background: radial-gradient(circle,
+            rgba(0, 163, 224, 0.25) 0%,
+            rgba(0, 164, 224, 0.082) 30%,
+            transparent 70%);
+    transform: translate(-50%, -50%);
+    transition:
+        transform 0.08s linear,
+        opacity 0.3s ease;
+}
+
+/* optional: hide on small screens */
+@media (max-width:768px) {
+    .cursor-glow {
+        display: none;
+    }
+}
+
 /* ===== LOADING OVERLAY ===== */
 .loading-overlay {
     position: fixed;

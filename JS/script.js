@@ -392,3 +392,23 @@ const scrollPercent = (scrollTop / scrollHeight) * 100;
 scrollBar.style.width = scrollPercent + "%";
 
 });
+
+
+// ==================== Cursor Glow ===========================================
+
+const glow = document.querySelector(".cursor-glow");
+
+window.addEventListener("mousemove", (e) => {
+
+glow.style.left = e.clientX + "px";
+glow.style.top = e.clientY + "px";
+
+});
+
+window.addEventListener("mousedown", () => {
+glow.style.transform = "translate(-50%, -50%) scale(1.2)";
+});
+
+window.addEventListener("mouseup", () => {
+glow.style.transform = "translate(-50%, -50%) scale(1)";
+});
