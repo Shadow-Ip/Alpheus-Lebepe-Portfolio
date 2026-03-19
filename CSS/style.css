@@ -92,6 +92,7 @@ body {
     font-size: 1.3rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
+    cursor: default;
 }
 
 .static-text {
@@ -172,6 +173,7 @@ section {
     text-align: center;
     position: relative;
     color: var(--text-primary);
+    cursor: default;
 }
 
 .section-title span {
@@ -218,6 +220,7 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: default;
 }
 
 .logo i {
@@ -325,6 +328,7 @@ header {
     flex: 1;
     text-align: center;
     max-width: 520px;
+    cursor: default;
 }
 
 .hero-text h2 {
@@ -484,6 +488,7 @@ header {
     color: var(--capitec-accent);
     margin-bottom: 25px;
     font-size: 1.5rem;
+    cursor: default;
 }
 
 .skill-bar-item {
@@ -496,6 +501,7 @@ header {
     margin-bottom: 6px;
     color: var(--text-secondary);
     font-size: 0.95rem;
+    cursor: default;
 }
 
 .skill-bar {
@@ -548,6 +554,7 @@ header {
     color: var(--capitec-accent);
     margin-bottom: 25px;
     font-size: 1.5rem;
+    cursor: default;
 }
 
 .tech-stack-grid {
@@ -636,10 +643,8 @@ header {
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     box-shadow: var(--glass-shadow);
-
     transform-style: preserve-3d;
     transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0);
-
     transition:
         transform 0.8s ease,
         opacity 1s ease,
@@ -670,6 +675,7 @@ header {
     align-items: center;
     gap: 12px;
     margin-bottom: 15px;
+    cursor: default;
 }
 
 .repo-header i {
@@ -680,12 +686,14 @@ header {
 .repo-header h3 {
     font-size: 1.2rem;
     color: var(--capitec-accent);
+    cursor: default;
 }
 
-.repo-header p {
+.repo-card p {
     color: var(--text-secondary);
     margin-bottom: 20px;
     font-size: 0.97rem;
+    cursor: default;
 }
 
 .repo-stats {
@@ -703,6 +711,7 @@ header {
     gap: 6px;
     color: var(--text-secondary);
     font-size: 0.9rem;
+    cursor: default;
 }
 
 .git-icon {
@@ -748,6 +757,12 @@ header {
     padding: 25px;
 }
 
+.education-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 30px;
+}
 .education-jus {
     display: flex;
     justify-content: space-between;
@@ -760,6 +775,7 @@ header {
 .education-jus h3 {
     color: var(--capitec-accent);
     font-size: 1.3rem;
+    cursor: default;
 }
 
 .education-jus span {
@@ -768,24 +784,28 @@ header {
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.8rem;
+    cursor: default;
 }
 
 .p-educ {
     color: var(--text-secondary);
     margin-bottom: 15px;
     font-size: 0.95rem;
+    cursor: default;
 }
 
 .h4-educ {
     color: var(--text-primary);
     margin: 20px 0 15px;
     font-size: 1.1rem;
+    cursor: default;
 }
 
 .module-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: bold;
 }
 
 .module-wrapper h4 {
@@ -799,11 +819,12 @@ header {
     font-size: 0.9rem;
 }
 
-.education-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    margin-top: 30px;
+.module-card:nth-child(4) .module-wrapper span {
+    color: gold;
+}
+
+.module-card:nth-child(2) .module-wrapper span {
+    color: rgb(255, 115, 0);
 }
 
 .module-grid {
@@ -813,33 +834,93 @@ header {
     margin-top: 25px;
 }
 
+/* ===== CARD BASE ===== */
 .module-card {
-    padding: 20px;
+    perspective: 1000px;
+    padding: 10px;
+    transform-style: preserve-3d;
     cursor: pointer;
 }
 
-.module-card.active {
-    border-color: var(--capitec-accent);
-    background: rgba(0, 163, 224, 0.1);
+/* ===== INNER ===== */
+
+.module-inner {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.module-syllabus {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
+/* ===== FLIP STATE ===== */
+.module-card.flip .module-inner {
+    transform: rotateY(180deg) scale(1.05);
 }
 
-.module-card.active .module-syllabus {
-    max-height: 500px;
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid var(--glass-border);
+/* ===== FACES ===== */
+.module-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 18px;
+    border-radius: 18px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.module-syllabus p {
+.module-face p {
     font-size: 0.9rem;
     color: var(--text-secondary);
     margin-top: 15px;
+}
+
+/* FRONT pops forward */
+.module-front {
+    transform: rotateY(0deg) translateZ(50px);
+}
+
+/* BACK sits behind then flips forward */
+.module-back {
+    transform: rotateY(180deg) translateZ(45px);
+}
+
+/* ===== DEPTH SHADOW ===== */
+.module-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(circle at var(--x) var(--y),
+            rgba(0, 0, 0, 0.4),
+            transparent 70%);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.module-card:hover::before {
+    opacity: 1;
+}
+
+/* ===== HOVER SCALE ===== */
+.module-card:hover .module-inner {
+    transform: scale(1.04);
+}
+
+/* Desktop hover flip */
+@media (hover: hover) {
+    .module-card:hover .module-inner {
+        transform: rotateY(180deg);
+    }
+}
+
+/* ===== MOBILE FIX ===== */
+@media (hover: none) {
+    .module-card:hover .module-inner {
+        transform: none;
+    }
 }
 
 @media (max-width: 900px) {
@@ -867,7 +948,8 @@ header {
 
 .skilltech-certificate p {
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.99rem;
+    cursor: default;
 }
 
 .skilltech-wrapper {
@@ -885,6 +967,7 @@ header {
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.8rem;
+    cursor: default;
 }
 
 .skilltech-badge {
@@ -904,6 +987,7 @@ header {
     color: var(--capitec-accent);
     font-size: 1.3rem;
     margin-top: 8px;
+    cursor: default;
 }
 
 .skill-d {
@@ -914,6 +998,7 @@ header {
     color: var(--text-primary);
     margin-bottom: 15px;
     font-size: 1.1rem;
+    cursor: default;
 }
 
 .skill-tags {
@@ -928,15 +1013,58 @@ header {
     border-color: var(--fnb-yellow);
     padding: 6px 14px;
     border-radius: 50px;
-    font-size: 0.85rem;
+    font-size: 0.99rem;
     transition: var(--transition);
     display: inline-block;
+    cursor: default;
 }
 
 .skill-tags span:hover {
     background: rgba(59, 130, 246, 0.2);
     transform: translateY(-3px);
 }
+
+
+
+.edu-card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 20px 60px rgba(0, 163, 224, 0.2);
+}
+
+/*
+.module-card2 {
+    perspective: 1000px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+}
+
+.module-inner2 {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.module-card2.flip .module-inner2 {
+    transform: rotateY(180deg);
+}
+
+.module-card2::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    background: radial-gradient(circle at var(--x) var(--y), rgba(0, 163, 224, 0.2), transparent 60%);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.module-card2:hover::after {
+    opacity: 1;
+}
+
+*/
 
 /* ===== CONTACT SECTION ===== */
 
@@ -961,13 +1089,18 @@ header {
     color: var(--capitec-accent);
     font-size: 1.5rem;
     margin-bottom: 25px;
+    cursor: default;
+}
 
+.pad-contact p{
+    cursor: default;
 }
 
 .div-contact {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    cursor: default;
 }
 
 .div-contact2 {
@@ -1204,9 +1337,10 @@ header {
     opacity: 0.7;
     pointer-events: none;
 }
+
 .magnetic {
     transition: transform 0.2s ease;
-    
+
 }
 
 
@@ -1230,6 +1364,7 @@ footer {
 
 .footer-info {
     max-width: 460px;
+    cursor: default;
 }
 
 .footer-logo {
@@ -1359,6 +1494,7 @@ footer {
     0% {
         background-position: 0%
     }
+
     100% {
         background-position: 200%
     }

@@ -129,7 +129,7 @@ function showNotification(message, type) {
             }, 3000);
         }
 
-// ============== Particle Background Logic ================
+// ===================== Particle Background Logic ===============================
     const canvas = document.getElementById('particles-canvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
@@ -212,7 +212,7 @@ function showNotification(message, type) {
             });
         });
 
-        // ===== Scroll Reveal Animation =====
+// ====================== Scroll Reveal Animation ================================
 const revealElements = document.querySelectorAll('.reveal');
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -246,8 +246,8 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-// ============= Animated Skill Bars Logic ===============
-
+// ==================== Animated Skill Bars Logic ==================================
+/*
 let skillsAnimated = false;
 
 function animateSkillBars() {
@@ -302,11 +302,12 @@ function animateSkillBars() {
 // Scroll trigger
 const skillsSection = document.getElementById('skills');
 
-const observer = new IntersectionObserver((entries) => {
+const skillsObserver = new IntersectionObserver((entries) => {
 
     entries.forEach(entry => {
 
         if (entry.isIntersecting) {
+            console.log("Skills triggered")
             animateSkillBars();
         }
 
@@ -314,10 +315,13 @@ const observer = new IntersectionObserver((entries) => {
 
 }, { threshold: 0.2 });
 
-observer.observe(skillsSection);
+if (skillsSection){
+    skillsObserver.observe(skillsSection);
+}
 
 
 // Mobile fallback
+
 window.addEventListener("load", () => {
 
     if (window.innerWidth <= 768) {
@@ -325,6 +329,49 @@ window.addEventListener("load", () => {
     }
 
 });
+
+window.addEventListener("load", () => {
+
+    const skillsSection = document.getElementById('skills');
+
+    const skillsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateSkillBars();
+                skillsObserver.unobserve(entry.target); // run once only
+            }
+        });
+    }, { threshold: 0.3 });
+
+    if (skillsSection) {
+        skillsObserver.observe(skillsSection);
+    }
+
+});
+
+
+function checkSkillsInView() {
+    if (skillsAnimated) return;
+
+    const skillsSection = document.getElementById('skills');
+    if (!skillsSection) return;
+
+    const rect = skillsSection.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight * 0.8) {
+        animateSkillBars();
+        skillsAnimated = true;
+        window.removeEventListener('scroll', checkSkillsInView);
+    }
+}
+
+// Run on scroll
+window.addEventListener('scroll', checkSkillsInView);
+
+// Run once on load (in case already visible)
+window.addEventListener('load', checkSkillsInView);
+
+*/
 
 
 // ============== Contact Form EmailJS script ================
@@ -434,4 +481,173 @@ btn.addEventListener("mouseleave", () => {
 
 btn.style.transform = "translate(0, 0) scale(1)";
 });
+});
+
+// ===================== Module card ============================
+// tilt to mause directio
+/*
+document.querySelectorAll(".module-card2").forEach(card => {
+
+    const inner = card.querySelector(".module-inner2");
+
+    card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateX = (y - rect.height / 2) / 8;
+        const rotateY = (rect.width / 2 - x) / 8;
+
+        inner.style.transform = `
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            scale(1.05)
+        `;
+    });
+
+    card.addEventListener("mouseleave", () => {
+        inner.style.transform = "rotateY(0deg) rotateX(0deg)";
+    });
+
+});
+
+document.querySelectorAll(".module-card2").forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+        particles.forEach(p => {
+            p.speedX *= 2;
+            p.speedY *= 2;
+        });
+    });
+
+    card.addEventListener("mouseleave", () => {
+        particles.forEach(p => {
+            p.speedX *= 0.5;
+            p.speedY *= 0.5;
+        });
+    });
+
+});*/
+
+
+
+// replace below
+
+document.querySelectorAll(".module-card").forEach(card => {
+
+    const inner = card.querySelector(".module-inner");
+
+    //  CLICK (for mobile)
+    card.addEventListener("click", () => {
+        card.classList.toggle("flip");
+    });
+
+    card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateX = (y - rect.height / 2) / 10;
+        const rotateY = (rect.width / 2 - x) / 10;
+
+        // CHECK BOTH STATES
+        const isFlipped =
+            card.classList.contains("flip") || card.matches(":hover");
+
+        inner.style.transform = `
+            rotateY(${isFlipped ? 180 : 0}deg)
+            rotateX(${rotateX}deg)
+            scale(1.05)
+        `;
+
+        card.style.setProperty("--x", `${x}px`);
+        card.style.setProperty("--y", `${y}px`);
+    });
+
+    card.addEventListener("mouseleave", () => {
+        const isFlipped = card.classList.contains("flip");
+
+        inner.style.transform = `
+            rotateY(${isFlipped ? 180 : 0}deg)
+            rotateX(0deg)
+            scale(1)
+        `;
+    });
+
+});
+
+
+
+// ==================== Animated Skill Bars Logic ==================================
+
+let skillsAnimated = false;
+
+function animateSkillBars() {
+
+    if (skillsAnimated) return;
+
+    const bars = document.querySelectorAll('.skill-bar-fill');
+    const percents = document.querySelectorAll('.skill-percent');
+
+    bars.forEach(bar => {
+        const width = bar.dataset.width;
+        bar.style.width = width;
+    });
+
+    percents.forEach(percent => {
+
+        const target = +percent.dataset.target;
+        const level = percent.dataset.level;
+
+        let current = 0;
+        const increment = target / 40;
+
+        const updateCounter = () => {
+            if (current < target) {
+                current += increment;
+                percent.innerText = Math.floor(current) + "% • " + level;
+                requestAnimationFrame(updateCounter);
+            } else {
+                percent.innerText = target + "% • " + level;
+            }
+        };
+
+        updateCounter();
+    });
+
+    skillsAnimated = true;
+}
+
+
+// ==================== Scroll Trigger ==================
+
+function checkSkillsInView() {
+
+    if (skillsAnimated) return;
+
+    const skillsSection = document.getElementById('skills');
+    if (!skillsSection) return;
+
+    const rect = skillsSection.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight * 0.8) {
+        animateSkillBars(); // now it exists 
+        window.removeEventListener('scroll', checkSkillsInView);
+    }
+}
+
+window.addEventListener('scroll', checkSkillsInView);
+window.addEventListener('load', checkSkillsInView);
+
+
+// Mobile fallback
+
+window.addEventListener("load", () => {
+
+    if (window.innerWidth <= 768) {
+        animateSkillBars();
+    }
+
 });
