@@ -476,11 +476,11 @@ btn.style.transform = "translate(0, 0) scale(1)";
 });
 
 // ===================== Module card ============================
-// tilt to mause directio
+// tilt to mouse direction
+/*
+document.querySelectorAll(".move-tilt").forEach(card => {
 
-document.querySelectorAll(".module-card2").forEach(card => {
-
-    const inner = card.querySelector(".module-inner2");
+    const inner = card.querySelector(".move-inner");
 
     card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
@@ -488,14 +488,18 @@ document.querySelectorAll(".module-card2").forEach(card => {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        const rotateX = (y - rect.height / 2) / 8;
-        const rotateY = (rect.width / 2 - x) / 8;
+        const rotateX = (y - rect.height / 2) / 12;
+        const rotateY = (rect.width / 2 - x) / 12;
 
         inner.style.transform = `
             rotateX(${rotateX}deg)
             rotateY(${rotateY}deg)
             scale(1.05)
         `;
+
+        
+        card.style.setProperty("--x", `${x}px`);
+        card.style.setProperty("--y", `${y}px`);
     });
 
     card.addEventListener("mouseleave", () => {
@@ -504,7 +508,7 @@ document.querySelectorAll(".module-card2").forEach(card => {
 
 });
 
-document.querySelectorAll(".module-card2").forEach(card => {
+document.querySelectorAll(".move-tilt").forEach(card => {
 
     card.addEventListener("mouseenter", () => {
         particles.forEach(p => {
@@ -520,7 +524,7 @@ document.querySelectorAll(".module-card2").forEach(card => {
         });
     });
 
-});
+});*/
 
 
 
