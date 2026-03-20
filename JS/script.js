@@ -477,7 +477,7 @@ btn.style.transform = "translate(0, 0) scale(1)";
 
 // ===================== Module card ============================
 // tilt to mause directio
-/*
+
 document.querySelectorAll(".module-card2").forEach(card => {
 
     const inner = card.querySelector(".module-inner2");
@@ -520,7 +520,7 @@ document.querySelectorAll(".module-card2").forEach(card => {
         });
     });
 
-});*/
+});
 
 
 
