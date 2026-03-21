@@ -647,3 +647,28 @@ window.addEventListener("load", () => {
     }
 
 });
+
+// ===== CERTIFICATE MODAL =====
+const certImg = document.querySelector(".certificate-image img");
+const modal = document.getElementById("certModal");
+const modalImg = document.getElementById("certModalImg");
+const closeBtn = document.querySelector(".cert-close");
+
+if (certImg) {
+    certImg.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = certImg.src;
+    });
+}
+
+// Close on X
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Close on background click
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
