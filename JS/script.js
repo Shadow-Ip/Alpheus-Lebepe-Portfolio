@@ -649,6 +649,7 @@ window.addEventListener("load", () => {
 });
 
 // ===== CERTIFICATE MODAL =====
+/*
 const certImg = document.querySelector(".certificate-image img");
 const modal = document.getElementById("certModal");
 const modalImg = document.getElementById("certModalImg");
@@ -661,14 +662,101 @@ if (certImg) {
     });
 }
 
-// Close on X
+ Close on X
 closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
 });
 
-// Close on background click
+Close on background click
 modal.addEventListener("click", (e) => {
     if (e.target === modal) {
         modal.style.display = "none";
     }
+});*/
+
+// ===== CERTIFICATE MODAL PRO (Zoom + Drag + Keyboard) =====
+
+const certImg = document.querySelector(".certificate-image img");
+const modal = document.getElementById("certModal");
+const modalImg = document.getElementById("certModalImg");
+const closeBtn = document.querySelector(".cert-close");
+
+let scale = 1;
+let isDragging = false;
+let startX, startY, translateX = 0, translateY = 0;
+
+// OPEN
+if (certImg) {
+    certImg.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = certImg.src;
+        resetImage();
+    });
+}
+
+// CLOSE
+function closeModal() {
+    modal.style.display = "none";
+}
+
+closeBtn.addEventListener("click", closeModal);
+
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
 });
+
+// ===== ZOOM (scroll) =====
+modal.addEventListener("wheel", (e) => {
+    e.preventDefault();
+
+    scale += e.deltaY * -0.001;
+    scale = Math.min(Math.max(1, scale), 3);
+
+    updateTransform();
+});
+
+// ===== DRAG =====
+modalImg.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startX = e.clientX - translateX;
+    startY = e.clientY - translateY;
+    modal.style.cursor = "grabbing";
+});
+
+window.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    translateX = e.clientX - startX;
+    translateY = e.clientY - startY;
+
+    updateTransform();
+});
+
+window.addEventListener("mouseup", () => {
+    isDragging = false;
+    modal.style.cursor = "default";
+});
+
+// ===== KEYBOARD CONTROLS =====
+window.addEventListener("keydown", (e) => {
+    if (modal.style.display !== "flex") return;
+
+    if (e.key === "Escape") closeModal();
+    if (e.key === "+") scale = Math.min(scale + 0.2, 3);
+    if (e.key === "-") scale = Math.max(scale - 0.2, 1);
+
+    updateTransform();
+});
+
+// ===== HELPERS =====
+function updateTransform() {
+    modalImg.style.transform =
+        `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+}
+
+function resetImage() {
+    scale = 1;
+    translateX = 0;
+    translateY = 0;
+    updateTransform();
+}

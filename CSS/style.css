@@ -1132,10 +1132,9 @@ header {
     background: rgba(0, 0, 0, 0.9);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-
     justify-content: center;
     align-items: center;
-
+    cursor: grab;
     animation: fadeIn 0.3s ease;
 }
 
@@ -1145,8 +1144,9 @@ header {
     max-height: 85%;
     border-radius: 14px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-
     animation: zoomIn 0.3s ease;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 /* ===== CLOSE BUTTON ===== */
