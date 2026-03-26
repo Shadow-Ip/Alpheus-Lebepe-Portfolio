@@ -1959,40 +1959,7 @@ footer {
 }
 
 /* ===== BPMN MODAL ===== */
-/* ===== MODAL ===== */
-/*.bpmn-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    max-height: 70px;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.95);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-*/
 
-
-
-/* CLOSE *
-.bpmn-close {
-    font-size: 22px;
-    margin-left: 10px;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    cursor: pointer;
-    color: white;
-    z-index: 10000;
-}
-.bpmn-close:hover{
-    color: var(--capitec-accent);
-    transform: scale(1.2);
-}*/
 /* ===== STAGE ===== 
 .bpmn-stage {
     flex: 1;
@@ -2002,7 +1969,7 @@ footer {
     overflow: hidden;
 }*/
 
-/* IMAGE 
+/* IMAGE */
 .bpmn-modal-content {
     max-width: 90%;
     max-height: 85%;
@@ -2016,4 +1983,4 @@ footer {
 
 .bpmn-modal:fullscreen{
     background: rgba(0, 0, 0, 0.98);
-}*/
+}
