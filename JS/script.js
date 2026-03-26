@@ -810,7 +810,6 @@ const bpmnImg = document.querySelector(".case-image img");
 const modal2 = document.getElementById("bpmnModal");
 const modalImg2 = document.getElementById("bpmnModalImg");
 const closeBtn2 = document.querySelector(".bpmn-close");
-const downloadBtn = document.getElementById("downloadBtn");
 
 let scale = 1;
 let isDragging = false;
