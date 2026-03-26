@@ -1957,30 +1957,3 @@ footer {
         align-self: flex-start;
     }
 }
-
-/* ===== BPMN MODAL ===== */
-
-/* ===== STAGE ===== 
-.bpmn-stage {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}*/
-
-/* IMAGE */
-.bpmn-modal-content {
-    max-width: 90%;
-    max-height: 85%;
-    transition: transform 0.3s ease;
-    transform-origin: center;
-    object-fit: contain;
-    cursor: grab;
-    pointer-events: none;
-    border-radius: 1;
-}
-
-.bpmn-modal:fullscreen{
-    background: rgba(0, 0, 0, 0.98);
-}
