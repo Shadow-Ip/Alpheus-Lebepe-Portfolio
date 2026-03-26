@@ -674,12 +674,17 @@ modal.addEventListener("click", (e) => {
     }
 });*/
 
-// ===== CERTIFICATE MODAL PRO (Zoom + Drag + Keyboard) =====
-
+// ===== CERTIFICATE and BPMN MODAL PRO (Zoom + Drag + Keyboard) =====
+/*
 const certImg = document.querySelector(".certificate-image img");
 const modal = document.getElementById("certModal");
 const modalImg = document.getElementById("certModalImg");
 const closeBtn = document.querySelector(".cert-close");
+
+const bpmnImg = document.querySelector(".case-image img");
+const modal2 = document.getElementById("bpmnModal");
+const modalImg2 = document.getElementById("bpmnModalImg");
+const closeBtn2 = document.querySelector(".bpmn-close");
 
 let scale = 1;
 let isDragging = false;
@@ -694,17 +699,30 @@ if (certImg) {
     });
 }
 
+if (bpmnImg) {
+    bpmnImg.addEventListener("click", () => {
+        modal2.style.display = "flex";
+        modalImg2.src = bpmnImg.src;
+        resetImage();
+    });
+}
+
 // CLOSE
 function closeModal() {
     modal.style.display = "none";
+    modal2.style.display = "none";
 }
 
 closeBtn.addEventListener("click", closeModal);
+closeBtn2.addEventListener("click", closeModal);
 
 modal.addEventListener("click", (e) => {
     if (e.target === modal) closeModal();
 });
 
+modal2.addEventListener("click", (e) => {
+    if (e.target === modal2) closeModal();
+});
 // ===== ZOOM (scroll) =====
 modal.addEventListener("wheel", (e) => {
     e.preventDefault();
@@ -715,12 +733,27 @@ modal.addEventListener("wheel", (e) => {
     updateTransform();
 });
 
+modal2.addEventListener("wheel", (e) => {
+    e.preventDefault();
+
+    scale += e.deltaY * -0.001;
+    scale = Math.min(Math.max(1, scale), 3);
+
+    updateTransform();
+});
 // ===== DRAG =====
 modalImg.addEventListener("mousedown", (e) => {
     isDragging = true;
     startX = e.clientX - translateX;
     startY = e.clientY - translateY;
     modal.style.cursor = "grabbing";
+});
+
+modalImg2.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startX = e.clientX - translateX;
+    startY = e.clientY - translateY;
+    modal2.style.cursor = "grabbing";
 });
 
 window.addEventListener("mousemove", (e) => {
@@ -735,11 +768,14 @@ window.addEventListener("mousemove", (e) => {
 window.addEventListener("mouseup", () => {
     isDragging = false;
     modal.style.cursor = "default";
+    modal2.style.cursor = "default";
+
 });
 
 // ===== KEYBOARD CONTROLS =====
 window.addEventListener("keydown", (e) => {
     if (modal.style.display !== "flex") return;
+    if (modal2.style.display !== "flex") return;
 
     if (e.key === "Escape") closeModal();
     if (e.key === "+") scale = Math.min(scale + 0.2, 3);
@@ -751,6 +787,139 @@ window.addEventListener("keydown", (e) => {
 // ===== HELPERS =====
 function updateTransform() {
     modalImg.style.transform =
+        `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+    modalImg2.style.transform =
+        `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+}
+
+function resetImage() {
+    scale = 1;
+    translateX = 0;
+    translateY = 0;
+    updateTransform();
+}*/
+
+// ===== CERTIFICATE + BPMN MODAL (FIXED PRO VERSION) =====
+
+const certImg = document.querySelector(".certificate-image img");
+const modal = document.getElementById("certModal");
+const modalImg = document.getElementById("certModalImg");
+const closeBtn = document.querySelector(".cert-close");
+
+const bpmnImg = document.querySelector(".case-image img");
+const modal2 = document.getElementById("bpmnModal");
+const modalImg2 = document.getElementById("bpmnModalImg");
+const closeBtn2 = document.querySelector(".bpmn-close");
+
+let scale = 1;
+let isDragging = false;
+let startX = 0, startY = 0;
+let translateX = 0, translateY = 0;
+
+// TRACK WHICH MODAL IS ACTIVE
+let activeModal = null;
+let activeImg = null;
+
+// ===== OPEN =====
+if (certImg) {
+    certImg.addEventListener("click", () => {
+        openModal(modal, modalImg, certImg.src);
+    });
+}
+
+if (bpmnImg) {
+    bpmnImg.addEventListener("click", () => {
+        openModal(modal2, modalImg2, bpmnImg.src);
+    });
+}
+
+function openModal(modalEl, imgEl, src) {
+    modalEl.style.display = "flex";
+    imgEl.src = src;
+
+    activeModal = modalEl;
+    activeImg = imgEl;
+
+    resetImage();
+}
+
+// ===== CLOSE =====
+function closeModal() {
+    if (activeModal) {
+        activeModal.style.display = "none";
+    }
+
+    activeModal = null;
+    activeImg = null;
+}
+
+closeBtn.addEventListener("click", closeModal);
+closeBtn2.addEventListener("click", closeModal);
+
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+});
+
+modal2.addEventListener("click", (e) => {
+    if (e.target === modal2) closeModal();
+});
+
+// ===== ZOOM =====
+/*window.addEventListener("wheel", (e) => {
+    if (!activeModal) return;
+
+    e.preventDefault();
+
+    scale += e.deltaY * -0.001;
+    scale = Math.min(Math.max(1, scale), 3);
+
+    updateTransform();
+}, { passive: false });*/
+
+// ===== DRAG =====
+window.addEventListener("mousedown", (e) => {
+    if (!activeImg) return;
+
+    isDragging = true;
+    startX = e.clientX - translateX;
+    startY = e.clientY - translateY;
+
+    activeModal.style.cursor = "grabbing";
+});
+
+window.addEventListener("mousemove", (e) => {
+    if (!isDragging || !activeImg) return;
+
+    translateX = e.clientX - startX;
+    translateY = e.clientY - startY;
+
+    updateTransform();
+});
+
+window.addEventListener("mouseup", () => {
+    isDragging = false;
+
+    if (activeModal) {
+        activeModal.style.cursor = "default";
+    }
+});
+
+// ===== KEYBOARD =====
+window.addEventListener("keydown", (e) => {
+    if (!activeImg) return;
+
+    if (e.key === "Escape") closeModal();
+    if (e.key === "+") scale = Math.min(scale + 0.2, 3);
+    if (e.key === "-") scale = Math.max(scale - 0.2, 1);
+
+    updateTransform();
+});
+
+// ===== HELPERS =====
+function updateTransform() {
+    if (!activeImg) return;
+
+    activeImg.style.transform =
         `translate(${translateX}px, ${translateY}px) scale(${scale})`;
 }
 

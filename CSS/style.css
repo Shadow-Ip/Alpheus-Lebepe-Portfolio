@@ -1124,12 +1124,14 @@ header {
 }
 
 /* ===== MODAL BACKGROUND ===== */
-.cert-modal {
+.cert-modal, .bpmn-modal {
     display: none;
     position: fixed;
     z-index: 9999;
     inset: 0;
-    background: rgba(0, 0, 0, 0.9);
+    max-width: 70%;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.938);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     justify-content: center;
@@ -1139,7 +1141,7 @@ header {
 }
 
 /* ===== MODAL IMAGE ===== */
-.cert-modal-content {
+.cert-modal-content, .bpmn-modal-content{
     max-width: 90%;
     max-height: 85%;
     border-radius: 14px;
@@ -1150,7 +1152,7 @@ header {
 }
 
 /* ===== CLOSE BUTTON ===== */
-.cert-close {
+.cert-close, .bpmn-close {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -1160,7 +1162,7 @@ header {
     transition: 0.3s;
 }
 
-.cert-close:hover {
+.cert-close:hover, .bpmn-close:hover {
     color: var(--capitec-accent);
     transform: scale(1.2);
 }
@@ -1855,3 +1857,163 @@ footer {
         height: 220px;
     }
 }
+
+
+/* ===== CASE STUDY ===== */
+.case-study-container {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 30px;
+    padding: 25px;
+    margin-top: 30px;
+}
+
+/* LEFT */
+.case-left h3 {
+    color: var(--capitec-accent);
+    margin-bottom: 15px;
+}
+
+.case-block {
+    margin-bottom: 20px;
+}
+
+.case-block h4 {
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.case-block p,
+.case-block li {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.case-block ul {
+    padding-left: 18px;
+}
+
+/* SKILLS */
+.case-skills {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.case-skills span {
+    background: rgba(0, 163, 224, 0.15);
+    color: var(--capitec-accent);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+/* RIGHT */
+.case-right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* IMAGE */
+.case-image {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.05);
+    position: relative;
+    cursor: zoom-in;
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.case-image:hover img {
+    transform: scale(1.05);
+}
+
+/* BUTTON */
+.case-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .case-study-container {
+        grid-template-columns: 1fr;
+    }
+
+    .case-btn {
+        align-self: flex-start;
+    }
+}
+
+/* ===== BPMN MODAL ===== */
+/* ===== MODAL ===== */
+/*.bpmn-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    max-height: 70px;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+*/
+
+
+
+/* CLOSE *
+.bpmn-close {
+    font-size: 22px;
+    margin-left: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    cursor: pointer;
+    color: white;
+    z-index: 10000;
+}
+.bpmn-close:hover{
+    color: var(--capitec-accent);
+    transform: scale(1.2);
+}*/
+/* ===== STAGE ===== 
+.bpmn-stage {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}*/
+
+/* IMAGE 
+.bpmn-modal-content {
+    max-width: 90%;
+    max-height: 85%;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+    object-fit: contain;
+    cursor: grab;
+    pointer-events: none;
+    border-radius: 1;
+}
+
+.bpmn-modal:fullscreen{
+    background: rgba(0, 0, 0, 0.98);
+}*/
