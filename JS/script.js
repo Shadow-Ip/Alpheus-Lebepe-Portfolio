@@ -821,9 +821,6 @@ let translateX = 0, translateY = 0;
 let activeModal = null;
 let activeImg = null;
 
-if (downloadBtn && bpmnImg){
-    downloadBtn.href =bpmnImg.src;
-}
 
 // ===== OPEN =====
 if (certImg) {
