@@ -863,7 +863,24 @@ modal.addEventListener("click", (e) => {
 modal2.addEventListener("click", (e) => {
     if (e.target === modal2) closeModal();
 });
+// ===== ZOOM (scroll) =====
+modal.addEventListener("wheel", (e) => {
+    e.preventDefault();
 
+    scale += e.deltaY * -0.001;
+    scale = Math.min(Math.max(1, scale), 3);
+
+    updateTransform();
+});
+
+modal2.addEventListener("wheel", (e) => {
+    e.preventDefault();
+
+    scale += e.deltaY * -0.001;
+    scale = Math.min(Math.max(1, scale), 3);
+
+    updateTransform();
+});
 // ===== ZOOM =====
 /*window.addEventListener("wheel", (e) => {
     if (!activeModal) return;
