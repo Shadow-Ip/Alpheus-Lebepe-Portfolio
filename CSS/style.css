@@ -135,7 +135,7 @@ body {
 
 
 
-/* ===== GLASS MORPHISM ===== */
+/* ===== GLASS Background ===== */
 .glass-card {
     background: var(--glass-bg);
     -webkit-backdrop-filter: blur(12px);
@@ -399,7 +399,7 @@ header {
 
 }
 
-/* Image Wapper */
+/* Image Wrapper */
 .profile-img-wrapper {
     width: 300px;
     height: 300px;
