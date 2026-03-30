@@ -528,7 +528,7 @@ document.querySelectorAll(".move-tilt").forEach(card => {
 
 
 
-// replace below
+// replaced the above
 
 document.querySelectorAll(".module-card").forEach(card => {
 
